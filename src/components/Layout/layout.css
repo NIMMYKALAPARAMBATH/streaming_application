@@ -1,0 +1,13 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.button{
+    border: 0;
+    background: transparent;
+    /* justify-self: flex-end; */
+}
+.button-image{
+    width: 25px;
+    height: 25px;
+}

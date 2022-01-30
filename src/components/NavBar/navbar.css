@@ -1,0 +1,11 @@
+.navbar {
+    background-image: url("../../assets/nav_bar.png");
+}
+.button{
+    border: 0;
+    background: transparent;
+}
+.button-image{
+    width: 25px;
+    height: 25px;
+}
