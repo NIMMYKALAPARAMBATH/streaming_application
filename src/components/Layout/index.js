@@ -20,8 +20,8 @@ function Layout() {
                 return (
                     <div key={index} className='px-2'>
                         <img src={posterImage} className='pb-1' alt=""/>
-                        <div className='pb-6'>
-                            <span className='text-white'>{poster.name}</span>
+                        <div className='pb-6 pr-2 break-words text-white'>
+                            {poster.name}
                         </div>
                     </div>
                 )
