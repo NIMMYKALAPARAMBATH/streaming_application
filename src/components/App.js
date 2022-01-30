@@ -6,7 +6,7 @@ import NavBar from './NavBar';
 
 function App() {
   return (
-    <div className="container bg-black">
+    <div className="w-full bg-black">
       <NavBar/>
       <Layout/>
     </div>

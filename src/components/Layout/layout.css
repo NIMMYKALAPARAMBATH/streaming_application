@@ -5,7 +5,6 @@
 .button{
     border: 0;
     background: transparent;
-    /* justify-self: flex-end; */
 }
 .button-image{
     width: 25px;
