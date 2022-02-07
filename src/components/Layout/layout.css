@@ -2,11 +2,3 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.button{
-    border: 0;
-    background: transparent;
-}
-.button-image{
-    width: 25px;
-    height: 25px;
-}
