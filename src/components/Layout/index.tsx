@@ -7,41 +7,47 @@ import { getMovies, searchMovies } from '../../store/actions/movieAction'
 import placeholderForMissingImage from '../../assets/posters/placeholder_for_missing_posters.png'
 
 function Layout(props: any) {
-    const {searchText} = props;
+    const {searchText, layoutRef} = props;
 	const [isFetching, setIsFetching] = useState(false);
 	const [page, setPage] = useState(1);
     const dispatch = useDispatch();
     const moviesList = useSelector((state: any) => state.moviesList);
     const { movies, loading, error } = moviesList;
-
-    useEffect(() => {
-		fetchData(page);
-		window.addEventListener('scroll', handleScroll);
-	}, []);
     
     const handleScroll = () => {
 		if (
 			Math.ceil(window.innerHeight + document.documentElement.scrollTop) !== document.documentElement.offsetHeight ||
 			isFetching
-		)
-			return;
+		){
+            return;
+        }
 		setIsFetching(true);
 	};
 
-    const fetchData = useCallback((page) => {
+    const fetchData = () => {
+        console.log('fetchData');
+        console.log('page',page);
         if (page <= 3) {
             dispatch(getMovies(page));
             setPage(page + 1);
         }
-    }, [dispatch])
+    }
 
     useEffect(() => {
-		if (!isFetching) return;
-		fetchMoreListItems();
+        const functions = {handleScroll, fetchData};
+		layoutRef.current = functions;
+	}, []);
+
+    useEffect(() => {
+		if (isFetching) {
+            fetchMoreListItems();
+        }
 	}, [isFetching]);
 
 	const fetchMoreListItems = () => {
-		fetchData(page);
+        console.log('fetchMoreListItems');
+        
+		fetchData();
 		setIsFetching(false);
 	};
 
