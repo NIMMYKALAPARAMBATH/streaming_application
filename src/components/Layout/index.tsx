@@ -25,8 +25,6 @@ function Layout(props: any) {
 	};
 
     const fetchData = () => {
-        console.log('fetchData');
-        console.log('page',page);
         if (page <= 3) {
             dispatch(getMovies(page));
             setPage(page + 1);
@@ -45,8 +43,6 @@ function Layout(props: any) {
 	}, [isFetching]);
 
 	const fetchMoreListItems = () => {
-        console.log('fetchMoreListItems');
-        
 		fetchData();
 		setIsFetching(false);
 	};
