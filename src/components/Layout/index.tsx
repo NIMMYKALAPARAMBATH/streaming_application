@@ -16,7 +16,8 @@ function Layout(props: any) {
     
     const handleScroll = () => {
 		if (
-			Math.ceil(window.innerHeight + document.documentElement.scrollTop) !== document.documentElement.offsetHeight ||
+			Math.ceil(window.innerHeight + document.documentElement.scrollTop) < 
+            (document.documentElement.offsetHeight - (document.documentElement.offsetHeight/5000))  ||
 			isFetching
 		){
             return;
@@ -24,7 +25,7 @@ function Layout(props: any) {
 		setIsFetching(true);
 	};
 
-    const fetchData = () => {
+    const fetchData = async () => {
         if (page <= 3) {
             dispatch(getMovies(page));
             setPage(page + 1);
@@ -37,9 +38,10 @@ function Layout(props: any) {
 	}, []);
 
     useEffect(() => {
-		if (isFetching) {
-            fetchMoreListItems();
+		if (!isFetching) {
+            return;
         }
+        fetchMoreListItems();
 	}, [isFetching]);
 
 	const fetchMoreListItems = () => {
