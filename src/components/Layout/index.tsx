@@ -17,7 +17,7 @@ function Layout(props: any) {
     const handleScroll = () => {
 		if (
 			Math.ceil(window.innerHeight + document.documentElement.scrollTop) < 
-            (document.documentElement.offsetHeight - (document.documentElement.offsetHeight/5000))  ||
+            (document.documentElement.offsetHeight - (document.documentElement.offsetHeight/4500))  ||
 			isFetching
 		){
             return;
